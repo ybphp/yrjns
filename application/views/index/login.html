@@ -1,0 +1,59 @@
+	<div class="main">
+		<div class="login-form fr">
+			<div class="form-hd">
+				<h3>用户登录</h3>
+			</div>
+			<div class="form-bd">
+				<form action="<?php echo site_url().'/index/user/signin';?>" method="POST">
+					<dl>
+						<dt>用户名</dt>
+						<dd><input type="text" name="username" class="text" /></dd>
+					</dl>
+					<dl>
+						<dt>密&nbsp;&nbsp;&nbsp;&nbsp;码</dt>
+						<dd><input type="password" name="password" class="text"/></dd>
+					</dl>
+					<dl>
+						<dt>验证码</dt>
+						<dd><table><tr><td><input type="text" name="captcha" class="text" size="10" style="width:68px; height:23px"> </td><td>&nbsp;</td><td>
+						<img src="<?php echo site_url('index/user/code');?>" alt="" onclick= this.src="<?php echo site_url('index/user/code').'/'?>"+Math.random() style="cursor: pointer;" title="看不清？点击更换另一个验证码。"/></td></tr></table></dd>
+					</dl>
+					<dl>
+						<dt>&nbsp;</dt>
+						<dd><input type="submit" value="登录" class="submit"/> <a href="<?php echo site_url('index/user/findPassword');?>" class="forget">忘记密码?</a></dd>
+					</dl>
+				</form>
+				<dl>
+					<dt>&nbsp;</dt>
+					<dd> 还不是本站会员？立即 <a href="<?php echo site_url().'/index/user/register' ;?>" class="register">注册</a></dd>
+				</dl>
+				<dl class="other">
+					<dt>&nbsp;</dt>
+					<dd>
+						<p>您可以用合作伙伴账号登录：</p>
+						<a href="" class="qq"></a>
+						<a href="" class="sina"></a>
+					</dd>
+				</dl>
+			</div>
+			<div class="form-ft">
+			
+			</div>		
+		</div>
+		
+		<div class="login-form-left fl">
+			<dl class="func clearfix">
+				<dt>登陆成功之后您可以</dt>
+				<dd class="ico05"><i></i>发表文章</dd>
+				<dd class="ico01"><i></i>收藏文章</dd>
+				<dd class="ico03"><i></i>个人空间</dd>
+				<dd class="ico02"><i></i>添加好友</dd>
+				<dd class="ico06"><i></i>评论文章</dd>
+			</dl>
+			
+			<div class="if">
+				<h2>如果您是本站用户</h2>
+				<p>我已经注册过账号，立即 <a href="<?php echo site_url().'/index/user/login' ;?>" class="register">登录</a> 或是 <a href="<?php echo site_url('index/user/findPassword');?>" class="findpwd">找回密码？</a></p>
+			</div>
+		</div>
+	</div>

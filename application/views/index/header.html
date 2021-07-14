@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta property="wb:webmaster" content="af4ec2db1e79bf32" />
+<meta property="qc:admins" content="20420510106122636654" />
+<title>悠然见南山</title>
+<link rel="stylesheet" href="<?php echo base_url().'/public/index/' ;?>css/base.css" />
+<link rel="stylesheet" href="<?php echo base_url().'/public/index/' ;?>css/global.css" />
+<link rel="stylesheet" href="<?php echo base_url().'/public/index/' ;?>css/login-register.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo base_url().'/public/index/' ;?>css/style.css" media="screen" />
+</head>
+<body>
+<div id="main_container">
+	<div id="header">
+    	<div id="logo"><a href="<?php echo site_url().'/index/home/index' ;?>"><img src="<?php echo base_url().'/public/index/' ;?>images/logo.gif" alt="" title="" border="0" /></a></div>
+        <div id="menu">
+            <ul >                                        
+                <li><a class="current" href="<?php echo site_url().'/index/home/index' ;?>" title="">首页</a></li>
+                <li><a href="<?php echo site_url().'/index/article/list_article' ;?>" title="">美文欣赏</a></li>
+                <li><a href="<?php echo site_url().'/index/article/list_document' ;?>" title="">技术文档</a></li>
+                <li><a href="<?php echo site_url().'/index/photo/list_photo' ;?>" title="">悠然相册</a></li>
+				<li><a href="<?php echo site_url().'/index/write/write_article' ;?>" title="">发表文章</a></li>
+                <?php $user = $this->session->userdata('user');?>
+                <?php if (empty($user)) :?>
+				<li><a href="<?php echo site_url().'/index/user/login' ;?>">欢迎登陆</a></li>
+                <?php else :?>
+                <li><a href='<?php echo site_url().'/index/member/userinfo' ;?>'>您好,<?php echo $user['username'];?></a></li>
+                <li><a href="<?php echo site_url('index/user/logout');?>">[注销]</a></li>
+            <?php endif;?>
+        </ul>
+    </div>    
+</div>
+   

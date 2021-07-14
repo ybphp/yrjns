@@ -1,0 +1,112 @@
+.greybutton 
+{
+    background:#FFFFFF;
+    background-image:url(../images/grey_27.jpg);
+    background-repeat:no-repeat;
+    background-position:center;
+    border:none;
+    width:30px;
+    height:30px;
+    margin: 1px;
+    font-size:12px;
+    font-weight:900;
+    font-family:Arial;
+    color:#FFFFFF;
+    cursor:hand;
+}
+.redbutton 
+{
+    background:#FFFFFF;
+    background-image:url(../images/red__27.jpg);
+    background-repeat:no-repeat;
+    background-position:center;
+    border:none;
+    width:30px;
+    height:30px;
+    margin: 1px;
+    font-size:12px;
+    font-weight:900;
+    font-family:Arial;
+    color:#FFFFFF;
+    cursor:hand;
+}
+.bluebutton 
+{
+    background:#FFFFFF;
+    background-image:url(../images/blue__27.jpg);
+    background-repeat:no-repeat;
+    background-position:center;
+    border:none;
+    width:30px;
+    height:30px;
+    margin: 1px;
+    font-size:12px;
+    font-weight:900;
+    font-family:Arial;
+    color:#FFFFFF;
+    cursor:hand;
+}
+.submitbutton 
+{
+    width:100px; 
+    height:28px; 
+    background-image:url(../images/gj_btn8.jpg); 
+    background-repeat:no-repeat; 
+    border:none;
+}
+.resetbutton 
+{
+    width:100px; 
+    height:28px; 
+    background-image:url(../images/gj_btn5.jpg); 
+    background-repeat:no-repeat; 
+    border:none;
+}
+.startbutton 
+{
+    width:100px; 
+    height:28px; 
+    background-image:url(../images/gj_btn4.jpg); 
+    background-repeat:no-repeat; 
+    border:none;
+}
+.acstartbutton 
+{
+    width:100px; 
+    height:28px; 
+    background-image:url(../images/gj_btn6.jpg); 
+    background-repeat:no-repeat; 
+    border:none;
+}
+.xzstartbutton 
+{
+    width:100px; 
+    height:28px; 
+    background-image:url(../images/gj_btn13.jpg); 
+    background-repeat:no-repeat; 
+    border:none;
+}
+.suoshuistartbutton 
+{
+    width:100px; 
+    height:28px; 
+    background-image:url(../images/gj_btn14.jpg); 
+    background-repeat:no-repeat; 
+    border:none;
+}
+.daochubutton
+{
+    width:164px; 
+    height:30px; 
+    background-image:url(../images/daochu.gif); 
+    background-repeat:no-repeat; 
+    border:none;
+}
+.zjbutton
+{
+    width:100px; 
+    height:28px;  
+    background-image:url(../images/gj_btn12.jpg); 
+    background-repeat:no-repeat; 
+    border:none;
+}

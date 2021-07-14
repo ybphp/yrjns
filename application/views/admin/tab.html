@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD>
+<META http-equiv=Content-Type content="text/html; charset=utf-8">
+<LINK href="<?php echo base_url().'/public/admin/';?>css/admin.css" type="text/css" rel="stylesheet">
+</HEAD>
+<BODY>
+<TABLE cellSpacing=0 cellPadding=0 width="100%" align=center border=0>
+  <TR height=28>
+    <TD background=<?php echo base_url().'/public/admin/' ;?>images/title_bg1.jpg>当前位置: </TD></TR>
+  <TR>
+    <TD bgColor=#b1ceef height=1></TD></TR>
+  <TR height=20>
+    <TD background=<?php echo base_url().'/public/admin/' ;?>images/shadow_bg.jpg></TD></TR></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="90%" align=center border=0>
+  <TR height=100>
+    <TD align=middle width=100><IMG width=150 height=190 src="<?php echo base_url().'/public/admin/' ;?>images/admin_p.gif" 
+      width=90></TD>
+    <TD width=60>&nbsp;</TD>
+    <TD>
+      <TABLE height=100 cellSpacing=0 cellPadding=0 width="100%" border=0>
+        <TR>
+        <?php $admin = $this->session->userdata('admin_name');?>
+          <TD style="FONT-WEIGHT: bold; FONT-SIZE: 32px"><?php echo $admin['admin_name'];?></TD></TR>
+        <TR>
+          <TD>欢迎进入网站管理中心！</TD></TR></TABLE></TD>
+           </TR>
+  <TR>
+    <TD colSpan=3 height=10></TD></TR></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width="95%" align=center border=0>
+  <TR height=20>
+    <TD></TD></TR>
+  <TR height=22>
+    <TD style="PADDING-LEFT: 20px; FONT-WEIGHT: bold; COLOR: #ffffff" 
+    align=middle background=<?php echo base_url().'/public/admin/' ;?>images/title_bg2.jpg>您的相关信息</TD></TR>
+  <TR bgColor=#ecf4fc height=12>
+    <TD></TD></TR>
+  <TR height=20>
+    <TD></TD></TR></TABLE>
+<TABLE cellSpacing=0 cellPadding=2 width="95%" align=center border=0>
+  <TR>
+    <TD align=right width=100>登陆帐号：</TD>
+    <TD style="COLOR: #880000"><?php echo $admin['admin_name'];?></TD></TR>
+  <TR>
+    <TD align=right>真实姓名：</TD>
+    <TD style="COLOR: #880000">admin</TD></TR>
+  <TR>
+    <TD align=right>注册时间：</TD>
+    <TD style="COLOR: #880000"><?php echo $admin['addtime'];?></TD></TR>
+  <TR>
+    <TD align=right>服务器环境：</TD>
+    <TD style="COLOR: #880000"><?php echo $this->input->server('SERVER_SOFTWARE');?></TD></TR>
+  <TR>
+    <TD align=right>PHP版本：</TD>
+    <TD style="COLOR: #880000"><?php echo PHP_VERSION;?></TD></TR>
+  <TR>
+    <TD align=right>数据库信息：</TD>
+    <TD style="COLOR: #880000"><?php echo mysql_get_server_info();?></TD></TR>
+  <TR>
+    <TD align=right>客户端IP地址：</TD>
+    <TD style="COLOR: #880000"><?php echo $this->input->server('SERVER_ADDR');?></TD></TR>
+    <TR>
+    <TD align=right>服务器端IP地址：</TD>
+    <TD style="COLOR: #880000"><?php echo $this->input->ip_address();?></TD></TR>
+  <TR>
+    <TD align=right>网站开发QQ：</TD>
+    <TD style="COLOR: #880000">2402226767</TD>
+	<TD align=right><script language="javascript" type="text/javascript" src="http://js.users.51.la/17066830.js"></script>
+<noscript><a href="http://www.51.la/?17066830" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/17066830.asp" style="border:none" align="center"/></a></noscript></TD>
+	</TR></TABLE>
+ </BODY></HTML>

@@ -1,0 +1,34 @@
+<?php echo $this->load->view('index/header.html');?>
+<br />
+<ul class="comm_right">
+<p><br /></p>
+<div id="mainbr"><style type="text/css">
+#pagelist { padding:0; width:95%; font-size:12px; list-style-type:none; margin-left:20px; margin-bottom:10px;}
+#pagelist li {width:99%; height:30px; }
+#pagelist li a .lbt {display:block; width:70%; float:left; text-indent:20px; text-decoration:none; white-space:nowrap; text-overflow:ellipsis; overflow: hidden; display:inline;}
+#pagelist li a .ldt { font:12px Arial;display:block; width:30%; float:right; text-align:center; color:#069; text-decoration:none; display:inline; margin-top:7px;}
+#pagelist li a {width:99%; height:30px; display:block; line-height:30px; color:#666; text-decoration:none; cursor:hand; background:url(images/xinwendongtai/tick.gif) 5px 6px no-repeat; border-bottom:1px #ccc dashed;}
+#pagelist li a:hover{ color:#96f; text-decoration:none; background:url(images/xinwendongtai/tick2.gif) 5px 6px no-repeat;border-bottom:1px #96f dashed;}
+#pagelist li a:hover .ldt {color:#03c;}
+#pagelist h2{ font: bold 16px Arial;padding-bottom: 4px;border-bottom: 1px dashed #F11B25;margin-top:10px;background:url(images/xinwendongtai/more.gif) 95% 40%  no-repeat; text-decoration: none;color: #F11B25;} 
+#pagelist a:hover h2{ font: bold 16px Arial;padding-bottom: 4px; margin-top:10px; text-decoration: none;background:url(images/xinwendongtai/more1.gif) 95% 40% no-repeat;}
+.clear{ clear:both;}
+</style>
+<ul id="pagelist">
+	<a href="#"><h2>PHP技术文档</h2></a>
+	<?php foreach($res as $v) : ?>
+			 <div>
+				<li><a href="<?php echo site_url('index/article/show_article/'.$v['id']);?>" title="">
+					<span class="lbt"><?php echo $v['title'];?></span>
+					<span class="ldt"><?php echo $v['addtime']?></span>
+					</a>
+				</li>
+             </div><?php endForeach ;?>
+</ul>
+<div class="clear"></div>	</div>
+</ul>
+<br/><br/>
+<div>
+    <?php echo $pageinfo;?>
+</div>
+<?php $this->load->view('index/footer.html');?>

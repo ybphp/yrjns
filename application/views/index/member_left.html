@@ -1,0 +1,96 @@
+ <?php echo $this->load->view('index/header.html');
+ $username = $this->session->userdata('user');
+ //获取用户头像
+$user= $this->member->show_userpic($username['username']);
+//p($data);die;
+ ?>
+	<link rel="stylesheet" href="<?php echo base_url().'/public/index/' ;?>css/base.css" type="text/css" />
+	<link rel="stylesheet" href="<?php echo base_url().'/public/index/' ;?>css/shop_common.css" type="text/css" />
+	<link rel="stylesheet" href="<?php echo base_url().'/public/index/' ;?>css/shop_header.css" type="text/css" />
+	<link rel="stylesheet" href="<?php echo base_url().'/public/index/' ;?>css/shop_manager.css" type="text/css" />
+	<link rel="stylesheet" href="<?php echo base_url().'/public/index/' ;?>css/shop_form.css" type="text/css" />
+    <script type="text/javascript" src="<?php echo base_url().'/public/index/' ;?>js/jquery-1.4.4.js" ></script>
+    <script type="text/javascript" src="<?php echo base_url().'/public/index/' ;?>js/topNav.js" ></script>
+	<div class="clear"></div>
+	<div class="shop_hd_breadcrumb">
+		<strong>当前位置：</strong>
+		<span>
+			<a href="<?php echo site_url('index/home/index');?>">首页</a>&nbsp;›&nbsp;
+			<a href="<?php echo site_url('index/member/userinfo');?>">我的信息管理</a>&nbsp;›&nbsp;
+		</span>
+	</div>
+	<div class="clear"></div>	
+	<!-- 我的个人中心 -->
+	<div class="shop_member_bd clearfix">
+		<!-- 左边导航 -->
+		<div class="shop_member_bd_left clearfix">
+			<div class="shop_member_bd_left_pic">
+			<?php foreach($user as $u ) :?>
+			<img id="imgPre" align="absmiddle" 
+			src="<?php $userpic=$u['user_pic'];if(empty($userpic)) { echo base_url('public/index/images/avatar.png');}
+			else{ echo base_url('public/uploads/').'/'.$userpic; } ;?>" style="display: block;"/>
+			<?php endForeach;?>	
+			<form action="<?php echo site_url('index/member/userpic');?>" method="post" enctype="multipart/form-data">
+			<input type="file" id="touxiang" name="touxiang" size="1" style="position: absolute; width: 10px; filter: alpha(opacity=0);opacity: 0; top: 0px;" onchange="preImg(this.id,'imgPre');"/>
+   			<input type="submit" value="添加" />
+   			</form>
+				<script>
+				/*上传头像*/
+				function preImg(sourceId, targetId) { 
+					var url = getFileUrl(sourceId); 
+					var imgPre = document.getElementById(targetId); 
+					imgPre.src = url; 
+				} 
+
+				function getFileUrl(sourceId) { 
+					var url; 
+					if (navigator.userAgent.indexOf("MSIE")>=1) { // IE 
+					url = document.getElementById(sourceId).value; 
+					} else if(navigator.userAgent.indexOf("Firefox")>0) { // Firefox 
+					url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0)); 
+					} else if(navigator.userAgent.indexOf("Chrome")>0) { // Chrome 
+					url = window.URL.createObjectURL(document.getElementById(sourceId).files.item(0)); 
+					} 
+					return url; 
+				} 
+
+				   function ss() {
+				    var img = document.getElementById("imgPre");
+				    var file = document.getElementById('touxiang');
+				    img.onmousemove = function(e) {
+				     var x, y;
+				     if (e) { x = e.clientX; y = e.clientY; }
+				     else { x = event.x; y = event.y; }
+				     window.status = x + "," + y;
+				     file.style.left = (x - 10) + 'px';
+				     file.style.top = (y - 10) + 'px';
+				    };
+				   };
+				   ss();
+
+				   /*ajax上传*/
+				   // function touxiang(){
+				   	// var touxiang = $('#touxiang').val();
+				    //   	$res = $.post('/index.php/index/member/userpic',{touxiang:touxiang},function(msg){
+				    //     alert(msg);
+				   	//  });
+				   // }
+				</script>
+			</div>
+			<div class="clear"></div>
+
+			<dl>
+				<dt>我的文章</dt>
+				<dd><span><a href="<?php echo site_url('index/member/userinfo');?>">已发表的文章</a></span></dd>
+				<dd><span><a href="<?php echo site_url('index/member/collect_article');?>">我的收藏</a></span></dd>
+				<dd><span><a href="">我的好友</a></span></dd>
+			</dl>
+
+			<dl>
+				<dt>我的账户</dt>
+				<dd><span><a href="<?php echo site_url('index/member/memberinfo');?>">个人资料</a></span></dd>
+				<dd><span><a href="<?php echo site_url('index/member/edit_password');?>">密码修改</a></span></dd>
+			</dl>
+
+		</div>
+		<!-- 左边导航 End -->

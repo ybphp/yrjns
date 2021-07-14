@@ -1,0 +1,220 @@
+<script src="<?php echo base_url().'/public/index/' ;?>js/jquery-1.4.4.js" ></script>
+<script type="text/javascript">
+	//Email获得焦点：
+function EmailFocus()
+{
+    var tishi = document.getElementById("emailMsg");
+	tishi.innerHTML = "此邮箱用来激活账号";
+	tishi.className = "msg";
+}
+//Email失去焦点
+function EmailBlur(){
+	var tishi = document.getElementById("emailMsg");
+	var email = document.getElementById("email").value;
+	var obj = document.getElementById("email");	
+	var result = email.match(/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/);
+	var v1 = obj.value;
+	if( v1 == "" )
+	{
+		//提示文字是：Email是必填项，请输入Email
+		tishi.innerHTML = "<span style='color:#f00;'>邮箱是必填项</span>";
+		tishi.className = "msg2";
+		return false;
+	}
+	else if(result == null)
+	{
+		//提示文字是：Email格式不正确
+		tishi.innerHTML = "<span style='color:#f00;'>邮箱格式不正确</span>";
+		tishi.className = "msg2";
+		return false;
+	}
+	else	
+	{
+	//验证Email是否存在
+		var email = $('#email').val();
+      	$res = $.post('/index.php/index/User/ckEmail',{email:email},function(msg){
+        $('#emailMsg').html(msg);
+   	 });
+	}
+}
+
+//昵称获得焦点：
+function NickFocus(){
+    var tishi = document.getElementById("nickMsg");
+	tishi.innerHTML = "用户名至少两个字符";
+	tishi.className = "msg";
+}
+//昵称失去焦点
+function NickBlur(){
+    var tishi = document.getElementById("nickMsg");
+	var obj = document.getElementsByName("username")[0];	
+	var v1 = obj.value;
+	if( v1.length < 2 )	
+	{
+		tishi.innerHTML = "<span style='color:#f00;'>用户名太短</span>";
+		tishi.className = "msg2";
+		return false;
+	}
+	else	
+	{
+		//验证用户名是否存在
+		var username = $('#username').val();
+      	$res = $.post('/index.php/index/User/ckUsername',{username:username},function(msg){
+        $('#nickMsg').html(msg);
+   	 	});
+	}
+}
+
+//密码获得焦点：
+function PswdFocus(){
+    var tishi = document.getElementById("pwdMsg");
+	tishi.innerHTML = "密码至少4位";	
+	tishi.className = "msg";
+}
+//密码失去焦点
+function PswdBlur(){
+    var tishi = document.getElementById("pwdMsg");
+	var obj = document.getElementById("pwd");	
+	var v1 = obj.value;
+	if( v1.length < 4 )	
+	{
+		tishi.innerHTML = "<span style='color:#f00;'>密码至少4位</span>";
+		tishi.className = "msg2";
+		return false;
+	}
+	else	
+	{
+		//出现对勾
+		tishi.innerHTML ="<img src='<?php echo base_url();?>public/index/images/register_write_ok.gif' />";
+		return true;
+	}
+}
+
+//重复密码获得焦点：
+function PswdFocus2(){
+    var tishi = document.getElementById("pwdMsg2");
+	tishi.innerHTML = "跟上面密码一致";
+	tishi.className = "msg";
+}
+//重复密码失去焦点
+function PswdBlur2(){
+    var tishi = document.getElementById("pwdMsg2");
+
+	var v1= document.getElementById("pwd").value;
+	var v2= document.getElementById("repwd").value;
+
+	if( v2.length < 4 )
+	{
+		tishi.innerHTML = "<span style='color:#f00;'>密码至少4位</span>";
+		tishi.className = "msg2";
+		return false;
+	}
+	else if( v1 != v2 )	//两次输入的密码不一致
+	{
+		tishi.innerHTML = "<span style='color:#f00;'>两次输入的密码不一致</span>";
+		tishi.className = "msg2";
+		return false;
+	}
+	else	
+	{
+		//出现对勾
+		tishi.innerHTML = "<img src='<?php echo base_url();?>public/index/images/register_write_ok.gif' />";
+		return true;
+	}
+}
+
+
+//表单验证函数：
+function chkForm()
+{
+	//第一项的判断：Email
+	var v1 = EmailBlur();
+	if( v1 == false)
+	{		
+		return false;
+	}
+
+	//第二项判断： 昵称
+	if( NickBlur() == false )	
+	{
+		return false;
+	}
+
+	//密码：
+	if( PswdBlur() == false )
+	{
+		return false;
+	}
+
+	//重复密码：
+	if( PswdBlur2() == false )
+	{
+		return false;
+	}
+
+	return true;
+
+}
+</script>
+	<div class="main">
+		<div class="login-form fr">
+			<div class="form-hd">
+				<h3>用户注册</h3>
+			</div>
+			<div class="form-bd">
+				<form action="<?php echo site_url().'/index/user/do_register';?>" method="POST" id="myform" onsubmit="return chkForm()">
+					<dl>
+						<dt>用户名</dt>
+						<dd><input type="text" id="username" name="username" class="register_input" onfocus="NickFocus();" onblur="NickBlur();"/>
+						<span id="nickMsg" class="msg"></span></dd>
+					</dl>
+					<dl>
+						<dt>密码</dt>
+						<dd><input type="password" id="pwd" name="password" class="register_input" onfocus="PswdFocus();" onblur="PswdBlur();" />
+						<span id="pwdMsg" class="msg"></span></dd>
+					</dl>
+					<dl>
+						<dt>确认密码</dt>
+						<dd><input type="password" id="repwd" name="repwd" class="register_input" onfocus="PswdFocus2();" onblur="PswdBlur2();"/>
+						<span id="pwdMsg2" class="msg"></span></dd>
+					</dl>
+					<dl>
+						<dt>邮箱</dt>
+						<dd><input type="text" name="email" id="email" class="register_input" onfocus="EmailFocus();" onblur="EmailBlur();"/>
+						<span id="emailMsg" class="msg"></span></dd>
+					</dl>
+					<dl>
+						<dt>验证码</dt>
+						<dd><table><tr><td><input type="text" name="captcha" class="text" size="10" style="width:68px; height:23px"> </td><td>&nbsp;</td><td>
+						<img src="<?php echo site_url('index/user/code');?>" alt="" onclick= this.src="<?php echo site_url('index/user/code').'/'?>"+Math.random() style="cursor: pointer;" title="看不清？点击更换另一个验证码。"/></td></tr></table></dd>
+					</dl>
+					<dl>
+						<dt>&nbsp;</dt>
+						<dd><div class="registerBtn"><input id="registerBtn" type="image" src="<?php echo base_url();?>public/index/images/register_btn_out.gif"></div>
+						<dt>&nbsp;</dt>
+						<input type= "checkbox" checked="checked"/>阅读并同意<a href="" class="forget">服务协议</a></dd>
+					</dl>
+				</form>
+				
+			</div>
+			<div class="form-ft">
+			
+			</div>		
+		</div>
+		
+		<div class="login-form-left fl">
+			<dl class="func clearfix">
+				<dt>注册之后您可以</dt>
+				<dd class="ico05"><i></i>发表文章</dd>
+				<dd class="ico01"><i></i>收藏文章</dd>
+				<dd class="ico03"><i></i>个人空间</dd>
+				<dd class="ico02"><i></i>添加好友</dd>
+				<dd class="ico06"><i></i>评论文章</dd>
+			</dl>
+			
+			<div class="if">
+				<h2>如果您是本站用户</h2>
+				<p>我已经注册过账号，立即 <a href="<?php echo site_url().'/index/user/login' ;?>" class="register">登录</a> 或是 <a href="<?php echo site_url().'/index/sendEmail/show_email';?>" class="findpwd"><a href="<?php echo site_url('index/user/findPassword');?>">找回密码？</a></p>
+			</div>
+		</div>
+	</div>

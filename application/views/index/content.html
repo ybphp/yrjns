@@ -1,0 +1,18 @@
+       <?php $this->load->view('index/header.html');?>
+        <div id="main_content">
+    	<div id="wide_content">
+    	<h2><?php echo $content['title'];?></h2><hr/><h6 align="right">阅览<?php echo $content['sum'];?>次</h6>
+        <h4>作者：<?php echo $content['author'];?></h4><br />
+        <div><img src="<?php echo base_url().'/public/uploads/'.$content['pic'] ;?>"></div>
+		<p><?php echo $content['content'];?></p><br/><br/><br/><br/>
+		<div align="right">
+		 <?php $user = $this->session->userdata('user');?>
+		<form action="<?php echo site_url('index/article/collect_article');?>" method="post" onsubmit="return true">
+			<input type="hidden" name="collect_user" value="<?php echo $user['username'];?>" />
+			<input type="hidden" name="collect_article_id" value="<?php echo $content['id'];?>" />
+			<input type="image" width="120" width="40" src="<?php echo base_url().'/public/index/images/shoucang.png';?>" />
+		</form>
+		</div>
+		<?php $this->load->view('index/lyb.html');?>
+		<?php $this->load->view('index/footer.html');?>
+		

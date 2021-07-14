@@ -1,0 +1,60 @@
+<link rel="stylesheet" type="text/css" href="<?php echo base_url().'/public/index/' ;?>css/skin.css">
+<script type="text/javascript">
+    function lev() {
+        var lev_mes = document.getElementById('lev');
+        lev_mes.style.display = 'block';
+        location.href = '#form';
+    }
+</script>
+       <!-- 留言区域开始 -->
+		<?php foreach ($lyb as $item):?>
+                <div class="mes">
+                    <div class="title">
+                        <ul>
+                            <li>序号：<?php echo $item['id'];?></li>
+                            <li>时间：<?php echo $item['time'];?></li>
+                            <li>姓名：<?php echo $item['username'];?></li>
+                        </ul>
+                    </div>
+                    <div class="txt">
+                        <span>内容：</span><p><?php echo $item['content'];?></p>
+                    </div>
+					<!--
+                    <div class="rep">
+                        <span style="font-weight:bold">管理员回复：</span><p><?php echo $item['reply'];?></p>
+                    </div>
+                </div>
+				-->
+				<?php endForeach;?>
+                <!-- 留言区域止 -->
+
+                <div id="page">
+                    <span><a href="#">首页</a></span>
+                    <ul>
+                        <li><a href="#">上一页</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">下一页</a></li>
+                        <li>总共有:0页</li>
+                        <li>当前是第:0页</li>
+                    </ul>
+                </div>
+
+
+                <a name="form">
+                <div id="lev" style="display:block;">
+                    <form action="<?php echo site_url('index/article/lyb_article');?>" method="POST">
+					<input type="hidden" name="article_id" value="<?php echo $content['id'];?>" />
+                        昵称：<input type="text" name="username" 
+						<?php if(!empty($user['username']))
+							echo "readonly='readonly'";?> value="<?php echo $user['username'];?>" /><br />
+                        内容：<br />
+                        <textarea name="content"></textarea><br />
+                        
+						<input class="c1" type="submit" value="提交" />
+						
+						<input class="c1" type="reset" value="重填" />
+                    </form>
+                </div>
+            </div>
+        </div>

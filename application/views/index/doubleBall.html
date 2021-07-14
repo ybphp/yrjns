@@ -1,0 +1,331 @@
+<?php echo $this->load->view('index/header.html');?>
+<link href="<?php echo base_url().'/public/index/' ;?>style/index.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" language="javascript" src="<?php echo base_url().'/public/index/' ;?>images/js/jquery.min.js"></script>
+<script type="text/javascript" language="javascript" src="<?php echo base_url().'/public/index/' ;?>images/js/common.js"></script>
+<div class="top">
+<link href="<?php echo base_url().'/public/index/' ;?>style/tools.css" rel="stylesheet" type="text/css" /><div id="conn">
+<div class="gongju_con1">
+<div class="gongju_con11">
+<div class="gongju_con11_con"> <link href="<?php echo base_url().'/public/index/' ;?>ssqtools/css/common.css" rel="stylesheet" type="text/css">
+ <div class="gj_1_tit">双色球在线随机选号程序</div>
+    <div style="margin-left:220px;float:left;text-align:center;">
+    <table cellspacing="0" cellpadding="0" align="center" border="0">
+        <tbody>
+            <tr valign="top"><td align="center" colspan="2" height="30px"><strong><font color="red">红球过滤条件</font></strong></td></tr>
+            <tr>
+                <td align="center">奇&nbsp;偶&nbsp;比:&nbsp;</td>
+                <td align="left">
+                    <select id="JO" size="1" name="JO">
+                        <option value="100" selected>随机</option>
+                        <option value="6">0:6</option>
+                        <option value="5">1:5</option>
+                        <option value="4">2:4</option>
+                        <option value="3">3:3</option>
+
+                        <option value="2">4:2</option>
+                        <option value="1">5:1</option>
+                        <option value="0">6:0</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">大&nbsp;小&nbsp;比:&nbsp;</td>
+                <td align="left">
+                    <select id="DX" size="1" name="DX">
+                        <option value="100" selected>随机</option>
+                        <option value="0">0:6</option>
+                        <option value="1">1:5</option>
+
+                        <option value="2">2:4</option>
+                        <option value="3">3:3</option>
+                        <option value="4">4:2</option>
+                        <option value="5">5:1</option>
+                        <option value="6">6:0</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">和值范围:&nbsp;</td>
+                <td align="left">
+                    <input id="searchStart" size="3" name="searchStart" value="21">&nbsp;到&nbsp; <input id="searchEnd" size="3" name="searchEnd" value="183">
+                </td>
+            </tr>
+            <tr>
+                <td align="center">产生连号:&nbsp;</td> 
+                <td align="left">
+                    <input type="radio" name="lianhao" id="lianhao0" value="0"> 是 <input type="radio" name="lianhao" id="lianhao1" value="1">
+                    否 <input type="radio" name="lianhao" checked="checked" id="lianhao2" value="2"> 随机
+                </td>
+            </tr>
+            <tr>
+                <td align="center">红球定胆:&nbsp;</td>
+                <td align="left">
+                    <select id="BH1" size="1" name="BH1">
+                        <option value="100" selected>随机</option>
+                        <option value="1">01</option>
+
+                        <option value="2">02</option>
+                        <option value="3">03</option>
+                        <option value="4">04</option>
+                        <option value="5">05</option>
+                        <option value="6">06</option>
+                        <option value="7">07</option>
+
+                        <option value="8">08</option>
+                        <option value="9">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+
+                        <option value="32">32</option>
+                        <option value="33">33</option>
+                    </select>
+                    <select id="BH2" size="1" name="BH2">
+                        <option value="100" selected>随机</option>
+                        <option value="1">01</option>
+                        <option value="2">02</option>
+
+                        <option value="3">03</option>
+                        <option value="4">04</option>
+                        <option value="5">05</option>
+                        <option value="6">06</option>
+                        <option value="7">07</option>
+                        <option value="8">08</option>
+
+                        <option value="9">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                        <option value="32">32</option>
+
+                        <option value="33">33</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">红球杀号:&nbsp;</td>
+                <td align="left">
+                    <select id="not_BH1" size="1" name="not_BH1">
+
+                        <option value="100" selected>随机</option>
+                        <option value="1">01</option>
+                        <option value="2">02</option>
+                        <option value="3">03</option>
+                        <option value="4">04</option>
+                        <option value="5">05</option>
+
+                        <option value="6">06</option>
+                        <option value="7">07</option>
+                        <option value="8">08</option>
+                        <option value="9">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                        <option value="32">32</option>
+                        <option value="33">33</option>
+                    </select>
+                    <select id="not_BH2" size="1" name="not_BH2">
+                        <option value="100" selected>随机</option>
+
+                        <option value="1">01</option>
+                        <option value="2">02</option>
+                        <option value="3">03</option>
+                        <option value="4">04</option>
+                        <option value="5">05</option>
+                        <option value="6">06</option>
+
+                        <option value="7">07</option>
+                        <option value="8">08</option>
+                        <option value="9">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+
+                        <option value="31">31</option>
+                        <option value="32">32</option>
+                        <option value="33">33</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+    </div>
+    
+    <div style="margin-left:130px;float:left;text-align:center;">
+    <table cellspacing="0" cellpadding="0" align="center" border="0">
+        <tbody>
+        <tr valign="top"><td align="center" colspan="2" height="30px"><strong><font color="blue">篮球过滤条件</font></strong></td></tr>
+            <tr>
+                <td align="center">蓝球定位:&nbsp;</td>
+                <td align="left">
+                    <select id="B_is" size="1" name="B_is">
+                        <option value="100" selected>随机</option>
+                        <option value="1">01</option>
+                        <option value="2">02</option>
+                        <option value="3">03</option>
+                        <option value="4">04</option>
+                        <option value="5">05</option>
+                        <option value="6">06</option>
+                        <option value="7">07</option>
+                        <option value="8">08</option>
+                        <option value="9">09</option>
+                        <option value="10">10</option>
+
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+
+                    </select></td>
+            </tr>
+            <tr>
+                <td align="center">蓝球大小: &nbsp;</td>
+                <td align="left">
+                    <select id="B_is_D" size="1" name="B_is_D">
+                        <option value="0" selected>随机</option>
+                        <option value="2">大</option>
+
+                        <option value="1">小</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">蓝球奇偶: &nbsp;</td>
+                <td align="left">
+                    <select id="B_is_J" size="1" name="B_is_J">
+
+                        <option value="0" selected>随机</option>
+                        <option value="2">偶</option>
+                        <option value="1">奇</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+    </div>
+    <div class="clear"></div>
+    <div style="margin-bottom:20px; text-align:center;">
+        <input class="submitbutton" onclick="javascript:getAll();" type="button" name="button" value="">
+    </div>    
+</div>
+<div id="divToDo" style="display:none;margin:0px auto;"></div>
+<table style="margin:0px auto;">
+<tr>
+    <td align="center"><div id="divNo_0" style="display:none;"></div></td>
+    <td align="center"><div id="divNo_1" style="display:none;"></div></td>
+    <td align="center"><div id="divNo_2" style="display:none;"></div></td>
+    <td align="center"><div id="divNo_3" style="display:none;"></div></td>
+    <td align="center"><div id="divNo_4" style="display:none;"></div></td>
+    <td align="center"><div id="divNo_5" style="display:none;"></div></td>
+</tr>
+<tr>
+    <td colspan="6" align="center"><div id="divBlue" style="display:none;"></div></td>
+</tr>
+<tr>
+    <td colspan="6" align="center"><div id="divHZ" style="display:none;"></div></td>
+
+</tr>
+<tr>
+    <td colspan="6" align="center"><div id="divAC" style="display:none;"></div></td>
+</tr>
+</table>      
+<script src="<?php echo base_url().'/public/index/' ;?>ssqtools/js/sjxh.js"></script>
+</div>
+<div>    
+</div>
+</div>
+</div>
+</div>
+<?php $this->load->view('index/footer.html');?>

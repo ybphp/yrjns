@@ -1,0 +1,121 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>冰霜时节：献给最爱的你，戚文雅！</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+        @font-face {
+            font-family: digit;
+            src: url('digital-7_mono.ttf') format("truetype");
+        }
+    </style>
+    <link href="<?php echo base_url().'/public/index/' ;?>style/default.css" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="<?php echo base_url().'/public/index/' ;?>style/jquery.js"></script>
+    <script type="text/javascript" src="<?php echo base_url().'/public/index/' ;?>style/garden.js"></script>
+    <script type="text/javascript" src="<?php echo base_url().'/public/index/' ;?>style/functions.js"></script>
+</head>
+
+<body>
+    <div id="mainDiv">
+        <div id="content">
+            <div id="code">
+                <span class="comments">/**</span><br />
+                <span class="space"/><span class="comments">*今天5月20号，想给丫头准备一份礼物！</span><br />
+				<span class="space"/><span class="comments">*所以一个下午啥事没干，刚好老板也不在，就折腾出这个！</span><br />
+				<span class="space"/><span class="comments">*2014年5月20日，我跟丫头在一起一年零一个月！</span><br />
+                <span class="space"/><span class="comments">* 今天我就悄悄告诉你们我跟丫头是怎么在一起的吧！</span><br />
+				 <span class="space"/><span class="comments">*不喜勿喷！</span><br />
+				<span class="space"/><span class="comments">*/</span><br />
+                Boy i= <span class="keyword">new</span> yangbin(<span class="string">"杨斌"</span>);<br />
+                Girl u= <span class="keyword">new</span> wenya(<span class="string">"戚文雅"</span>);<br />
+                <span class="comments">// 2013年4月20日, 你终于给了我答案！</span><br />
+                i.love(u);<br />
+                <span class="comments">// 当天晚上我们散步在学校的草坪上，我第一次主动牵你的手，好紧张！ </span><br />
+                u.sayOtherthing();<br />
+                <span class="comments">// 然后，几乎是在同时，你以迅雷不及掩耳之势给了我一个响亮的耳光！打得是左边感觉好疼！</span><br />
+                <span class="keyword">var</span> reason=i.ask(u);<br />
+                <span class="comments">// 你当时小紧张的问道：你，你，想干嘛？？？？</span><br />
+                $("body").append(reason);<br />
+                <span class="comments">// 我捂着脸，一脸委屈，看你良久！</span><br />
+				   <span class="comments">// 然后我们继续走着，于一僻静无人处，我一把将你抱住！</span><br />
+                <span class="comments">// 你当时吓坏了，拼命挣脱，我闭上眼睛一顿狂亲，脸也不知道被打了多少下！反正疼得是没感觉了！</span><br />
+                i.takeCareOf(u);<br />
+                <span class="comments">// 终于我还是亲到了，亲到了！你也渐渐不挣扎了！此处略去N个字......</span><br />
+                <span class="keyword">boolean</span> isAccept = <span class="keyword">false</span>;<br />
+                <span class="keyword">while</span> (isAccept) {<br />
+                <span class="placeholder"/>i.waitFor(u);<br />
+                <span class="placeholder"/><span class="comments">// 然后看见你哭了，把我吓到了！连忙问：没事吧？？？？</span><br />
+                <span class="placeholder"/><span class="comments">//你什么都没说又打了我一个耳光，更狠！这次打得是右边！</span><br />
+                <span class="placeholder"/>isAccept = u.thinkOver();<br />
+                }<br />
+                <span class="comments">// 然后你说了句：好吧，你对我负责吧 ！</span><br />
+				<span class="comments">// 就这样我们在一起了！<br />
+				//现在想想，哈哈哈哈哈哈哈哈。。。。。。。。。。。</span><br />
+                u.accept(i);<br />
+                i.liveHappilyWith(u);<br />
+            </div>
+            <div id="loveHeart">
+                <canvas id="garden"></canvas>
+                <div id="words">
+                    <div id="messages">
+                        丫头：
+                        <div id="elapseClock" style="display:none"></div>
+                        <a href='#' id="" onclick="wenya()">希望你可以一直伴随我左右！</a>
+						<img src="<?php echo base_url().'/public/index/' ;?>style/wenya.jpg">
+                    </div>
+					
+                    <div id="loveu">
+                        戚文雅，我爱你！<br/>
+                        <div class="signature">杨斌</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="copyright">
+            程序员: <a href="http://www.yrjns.net/">冰霜时节</a><br />
+			<embed   src="<?php echo base_url().'/public/index/' ;?>style/love.mp3"   autostart=true></embed>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var offsetX = $("#loveHeart").width() / 2;
+        var offsetY = $("#loveHeart").height() / 2 - 55;
+        
+        if (!document.createElement('canvas').getContext) {
+            var msg = document.createElement("div");
+            msg.id = "errorMsg";
+            msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+            document.body.appendChild(msg);
+            $("#code").css("display", "none")
+            $("#copyright").css("position", "absolute");
+            $("#copyright").css("bottom", "10px");
+            document.execCommand("stop");
+        } else {
+            setTimeout(function () {
+                adjustWordsPosition();
+                startHeartAnimation();
+            }, 10000);
+            
+            $("#accept").click(function(){
+                $(this).hide();
+                $("#elapseClock").show();
+                var together = new Date();
+                timeElapse(together);
+                setInterval(function () {
+                    timeElapse(together);
+                }, 500);
+            })
+            adjustCodePosition();
+            $("#code").typewriter();
+        }
+
+	//隐藏
+	window.onload=function f1(){
+		$('img').hide();
+	}
+function wenya(){
+		var sty = {width:'500px',height:'579px',fontSize:'30px',color:"white",backgroundColor:'pink'};
+        $("img").css('color','white').css('background-color','pink').animate(sty,function(){alert('冰霜时节公告：文雅网将于2014年7月7日正式上线！网址：www.qiwenya.com!敬请关注！')});
+		}
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+ <?php echo $this->load->view('index/member_left.html');?>
+		
+		<!-- 右边收藏文章列表 -->
+		<div class="shop_member_bd_right clearfix">
+			<div class="shop_meber_bd_good_lists clearfix">
+				<div class="title"><h3>已收藏文章列表</h3></div>
+				<table><thead class="tab_title">
+						<th style="width:280px;"><span>文章标题</span></th>
+						<th style="width:100px;"><span>文章作者</span></th>
+						<th style="width:100px;"><span>所属栏目</span></th>
+						<th style="width:100px;"><span>收藏时间</span></th>
+						<th style="width:100px;"><span>移除收藏</span></th>
+					</thead>
+					<tbody>
+						<tr><td colspan="5">
+						<?php foreach($collect_article as $v):?>
+							<table class="good">
+								<thead >
+									<tr><th colspan="6">
+										<span><strong>文章编号：<?php echo $v['cid'];?></strong></span>
+									</th></tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td class="dingdan_pic"><img src="<?php echo base_url().'public/uploads/'.$v['pic'];?>" /></td>
+										<td class="dingdan_title"><span><a href="<?php echo site_url('index/member/show_article/'.$v['aid']);?>"><?php echo $v['title'];?></a></span></td>
+										<td class="dingdan_danjia"><strong><?php echo $v['author'];?></strong></td>
+										<td class="dingdan_shuliang"><?php echo $v['cate'];?></td>
+										<td class="dingdan_zongjia"><strong><?php echo $v['collect_time'];?></strong></td>
+										<td class="dingdan_zongjia"><strong><a href="<?php echo site_url('index/member/del_collect_article/'.$v['cid']);?>" onclick="return confirm('你确定移除此篇文章?')" >移除收藏</a></strong></td>
+									</tr>
+								</tbody>
+							</table>
+							<?php endForeach ;?>
+						</td></tr>
+								</tbody>
+							</table>
+						</td></tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div><br /><br /><br />
+				<div align="right">
+				    <?php echo $pageinfo;?>
+				</div>
+	<br />
+ <?php echo $this->load->view('index/footer.html');?>

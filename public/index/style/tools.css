@@ -1,0 +1,45 @@
+#con { width: 962px; margin: auto; }
+#conn { width: 962px; margin: auto; }
+/*双色球-工具频道页*/
+.gongju_lef1 { height: 878px; width:628px; border: 1px solid #cde3fe; overflow: hidden; background-color: #f6fbff; }
+.gongju_lef1_tit { height: 83px; width: 448px; background-color: #FFFFFF; border-bottom: 1px solid #cde3fe; background-image: url(../imgs/gongju_bg.jpg); background-repeat: no-repeat; background-position: left top; padding-left: 180px; }
+.gongju_lef1_tit a { margin-right: 8px; margin-left: 8px; height: 28px; line-height: 28px; }
+.gongju_lef1_con { position: relative; top: -20px; margin-right: 20px; margin-left: 20px; }
+.gongju_lef1_conn { height: 65px; width: 588px; background-image: url(../imgs/gongju_bg2.jpg); background-repeat: no-repeat; margin-bottom: 8px; overflow: hidden; }
+.gongju_lef1_conn img { float: left; margin-top: 5px; margin-left: 3px; height: 52px; width: 92px; }
+.gongju_lef1_conn p { float: left; margin-left: 20px; line-height: 20px; margin-top: 2px; width: 473px; }
+.gongju_lef1_conn p a { }
+.gongju_lef1_conn p span { color: #d45451; margin-right: 20px; float: right; }
+.gongju_rig { width:322px; float: left; }
+.gongju_rig1 { width:320px; border:#adb9c2 solid 1px; margin-bottom: 8px; height: 325px; }
+.gongju_rig1 h4 { color: #545454; font-size: 13px; }
+/*双色球-工具内容页*/
+.gongju_con1 { width:900px; border: 1px solid #cde3fe; overflow: hidden; background-image: url(../imgs/gongju_bgtit.jpg); background-repeat: no-repeat; background-position: left top; }
+.gongju_con11 { margin: 15px; margin-top: 45px; }
+.gongju_con11 p { line-height: 28px; }
+.gongju_con11 p span { float: right; }
+.gongju_con11 p span a { color: #d6605c; }
+.gongju_con11_con { background-color: #F6FBFF; border: 1px solid #B4C5D5; padding: 5px 10px; }
+.gongju_con2 { height:38px; line-height:38px; width:928px; border: 1px solid #cde3fe; overflow: hidden; margin-top: 8px; padding: 0 15px; background-color: #f6fbff; }
+/*双色球-工具频道-对比器*/
+.gj_lef1 { width:628px; border: 1px solid #cde3fe; overflow: hidden; background-color: #ffffff; background-image: url(../imgs/gongju_tit.jpg); background-repeat: no-repeat; background-position: left top; text-align: center; }
+.gj_lef1_con { width: 592px; margin: 50px auto 18px auto; }
+.gj_lef1_con p { line-height: 28px; text-align: left; }
+.gj_lef1_con p span { float: right; }
+.gj_lef1_con p span a { color: #d6605c; }
+.gj_1 { background-color: #f6fbff; width: 570px; border: 1px solid #b4c5d5; padding: 10px; }
+.gj_1_con { background-color: #FFFFFF; border: 1px solid #bbbbbb; }
+.gj_1_tit { line-height: 31px; height: 31px; background-image: url(../imgs/gj_bg.jpg); background-repeat: repeat-x; border-bottom: 1px solid #bbbbbb; color: #898788; font-size: 14px; font-weight: bold; text-align: left; padding-left: 20px; margin-bottom: 8px; }
+.gj_1_tit span { font-size: 12px; }
+.gj_x { text-align: left; margin-top: 10px; margin-bottom: 25px; }
+.gj_x img { margin-right: 10px; margin-left: 20px; float: left; }
+.gj_sm { background-color: #f6fbff; width: 570px; border: 1px solid #b4c5d5; padding: 10px; text-align: left; }
+.gj_n { border: 1px solid #bbbbbb; padding: 10px; background-color:#FFFFFF;text-align: left;}
+.gj_n p { font-weight: bold; }
+.gj_n ul { margin-top: 10px; }
+.gj_n li { line-height: 25px; height: 25px; }
+.gj_n li span { float: right; }
+.zoushi_rig2 { height:255px; width:320px; border:#adb9c2 solid 1px; margin-bottom: 8px; }
+.gj_wscx { background-image: url(../imgs/wscx_bg.jpg); background-repeat: no-repeat; background-position: 10px 10px; height: 230px; width: 265px; padding-top: 10px; padding-bottom: 10px; padding-left: 55px; }
+.gj_wscx p { line-height: 29px; }
+.gj_wscx input { height: 16px; width: 16px; }

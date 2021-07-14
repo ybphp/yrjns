@@ -1,0 +1,107 @@
+<?php 
+header('Content-Type: text/html; charset=utf-8');
+echo $this->load->view('index/header.html');
+function cut_str($sourcestr,$cutlength){
+$returnstr='';
+$i=0;
+$n=0;
+$str_length=strlen($sourcestr);//字符串的字节数
+while (($n<$cutlength) and ($i<=$str_length))
+{
+$temp_str=substr($sourcestr,$i,1);
+$ascnum=Ord($temp_str);//得到字符串中第$i位字符的ascii码
+if ($ascnum>=224) //如果ASCII位高与224，
+{
+$returnstr=$returnstr.substr($sourcestr,$i,3); //根据UTF-8编码规范，将3个连续的字符计为单个字符
+$i=$i+3; //实际Byte计为3
+$n++; //字串长度计1
+}
+elseif ($ascnum>=192) //如果ASCII位高与192，
+{
+$returnstr=$returnstr.substr($sourcestr,$i,2); //根据UTF-8编码规范，将2个连续的字符计为单个字符
+$i=$i+2; //实际Byte计为2
+$n++; //字串长度计1
+}
+elseif ($ascnum>=65 && $ascnum<=90) //如果是大写字母，
+{
+$returnstr=$returnstr.substr($sourcestr,$i,1);
+$i=$i+1; //实际的Byte数仍计1个
+$n++; //但考虑整体美观，大写字母计成一个高位字符
+}
+else //其他情况下，包括小写字母和半角标点符号，
+{
+$returnstr=$returnstr.substr($sourcestr,$i,1);
+$i=$i+1; //实际的Byte数计1个
+$n=$n+0.5; //小写字母和半角标点等与半个高位字符宽...
+}
+}
+if ($str_length>$cutlength){
+$returnstr = $returnstr."......";//超过长度时在尾处加上省略号
+}
+return $returnstr;
+}
+;?>
+    <div class="green_box">
+    	<div class="clock">
+        <img src="<?php echo base_url().'/public/index/' ;?>images/clock.png" alt="" title="" />             
+        </div>
+        <div class="text_content">
+        <h1><a href="<?php echo site_url('index/home/love');?>">冰霜时节</a></h1>
+        <p class="green">真正的平静，不是避开车马喧嚣，而是在心中修篱种菊。尽管如流往事，每一天都涛声依旧，只要我们消除执念，便可寂静安然。愿每个人在纷呈世相中不会迷失荒径，可以端坐磐石上，醉倒落花前。
+如果可以，请让我预支一段如莲的时光，哪怕将来某一天加倍偿还。这个雨季会在何时停歇，无从知晓。但我知道，你若安好，便是晴天。
+        </p>
+        <div class="read_more"><a href="<?php echo site_url('index/home/love');?>">更多</a></div>
+        </div>
+        
+        <div id="right_nav">
+            <ul> 
+            <?php foreach($bssj as $v1) :?>                                       
+                <li><a href="<?php echo site_url('index/article/show_article/'.$v1['id']);?>" title=""><?php echo $v1['title'] ;?></a></li>
+            <?php endForeach ;?>
+            </ul>
+        </div>       
+    </div>
+    <div id="main_content">
+    	<div id="left_content">
+        <h2>最新文章</h2>
+        <p>
+        </p>
+        
+         <div id="left_nav">
+            <ul> 
+            <?php foreach($hot as $v):?>                                       
+                <li><a href="<?php echo site_url('index/article/show_article/'.$v['id']);?>" title="文章详情"><?php echo $v['title'];?></a></li>
+            <?php endForeach;?>
+            </ul>
+        </div>
+        </div>
+    	<div id="right_content">
+        <h2>最热文章</h2>
+        <?php foreach($new as $vv):?>
+        	<div class="products_box">
+  <a href="<?php echo site_url('index/article/show_article/'.$vv['id']);?>"><img src="<?php echo base_url().'/public/uploads/'.$vv['pic'] ;?>" alt="" title="" width="80px" height="60px" class="box_img" /></a>
+ <h3><?php echo $vv['title']?></h3>  
+            <p><?php echo cut_str($vv['content'],100);?> </p>
+            <div class="read_more_link"><a href="<?php echo site_url('index/article/show_article/'.$vv['id']);?>">阅读更多</a></div>
+            </div>   
+           <?php endForeach;?> 
+           <script type="text/javascript">
+           </script>
+             <form action="<?php echo site_url('index/search/search_article');?>" method="post" onsubmit="return true">
+            <div class="search_box">
+            <div class="search_title">文章搜索</div>
+            <div class="subsearch"></div>
+            <input type="text" class="search_input" name="search_article" />
+            <input type="image" src="<?php echo base_url().'/public/index/' ;?>images/search.gif" class="submit" />
+            </div>
+            </form>
+            <div class="contact_information">
+            <h4>联系方式：</h4>
+            <p>
+            <img width="47px" height="47px" src="<?php echo base_url().'/public/index/' ;?>images/phone_icon.png" alt="" title="" class="box_img" />
+            QQ:2402226767<br /><br /> QQ群:108988638</p> <br /><br />
+            </div>             
+        </div>
+    <div style=" clear:both;"></div>
+    </div>
+<?php $this->load->view('index/footer.html');?>

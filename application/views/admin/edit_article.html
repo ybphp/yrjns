@@ -1,0 +1,63 @@
+<link rel="stylesheet" type="text/css" href="<?php echo base_url().'/public/index/' ;?>css/niceforms-green.css" media="screen" />
+<link rel="stylesheet" href="<?php echo base_url().'/public/index/' ;?>css/ui.datepicker.css" type="text/css" />
+<script type="text/javascript" src="<?php echo base_url().'/public/index/' ;?>js/jquery.js"></script>
+<script type="text/javascript" src="<?php echo base_url().'/public/index/' ;?>js/nicejforms.js"></script>
+<script type="text/javascript" src="<?php echo base_url().'/public/index/' ;?>js/ui.datepicker.js"></script>	
+<script src="<?php echo base_url().'/public/index/' ;?>js/zh-cn.js" type="text/javascript" ></script>	
+<script type="text/javascript" src="<?php echo base_url().'/public/index/' ;?>js/ckeditor/ckeditor.js"></script>	
+<script type="text/javascript">
+	$(function(){
+		$("input[name=employTime]").datepicker();
+	});
+</script>
+<div id="container">
+<h1 style="margin-bottom:20px; color:#99cc33;"></h1>
+<form action="<?php echo site_url().'/admin/article/edit';?>" method="POST"  enctype="multipart/form-data">
+	<select size="1" id="mySelect" name="mySelect" class="width_160">
+	<?php foreach($cate as $vv):?>
+		<option value="<?php echo $vv['cname'];?>"><?php echo $vv['cname'];?></option>
+	<?php endforeach;?>
+	</select><br/><br />
+	<?php foreach($article as $v):?>
+	<input type="hidden" name="id" value="<?php echo $v['id'] ;?>"/>
+	文章动态：<br /><br />
+	公开&nbsp;<input type="radio" name="radioSet" id="option1" value="1" <?php echo $v['role']=='公开' ? 'checked="checked"' : '';?> />&nbsp;&nbsp;&nbsp;&nbsp;
+	私密&nbsp;<input type="radio" name="radioSet" id="option2" value="2" <?php echo $v['role']=='私密' ? 'checked="checked"' : '';?>/>
+	<br /><br />
+	作者:<input type="text" id="textinput" name="author" size="20" value="<?php echo $v['author'];?>"/>
+	<br /><br />
+	插图:<input type="file" id="textinput" name="pic" size="20" value=""/>
+	<br /><br />
+	日期:<input type="text" id="employTime" name="employTime" size="25" value="<?php echo $v['addtime'];?>"/>
+	<br /><br />
+	标题:<input type="text" id="textinput" name="title" size="50" value="<?php echo $v['title'];?>" />
+	<br /><br />文章:<br /><br />
+	<textarea id="content" name="content" rows="20" cols="100"><?php echo $v['content'];?></textarea><br />
+	<br />
+	<input type="submit" value="发表文章" />
+	<?php endforeach;?>
+</form>
+<script type="text/javascript">
+$(document).ready(function(){
+	$.NiceJForms.build({
+			imagesPath:"css/images/greentheme/"
+		})
+	});
+
+    CKEDITOR.replace("content",{
+               
+        filebrowserBrowseUrl : 'ckfinder/ckfinder.html',     filebrowserImageBrowseUrl : 'ckfinder/ckfinder.html?Type=Images', filebrowserFlashBrowseUrl : 'ckfinder/ckfinder.html?Type=Flash',  filebrowserUploadUrl : 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
+        filebrowserImageUploadUrl : 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images',
+        filebrowserFlashUploadUrl : 'ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash'
+        
+    });
+    function ceshi(){
+       /* var content = document.getElementById('ck1');
+        alert(content.value);*/
+
+        alert(CKEDITOR.instances.ck1.getData());
+
+        return false;
+    }
+</script>
+<br/>
